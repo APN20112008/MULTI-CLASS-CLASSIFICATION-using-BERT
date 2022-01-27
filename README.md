@@ -59,7 +59,7 @@ Implementation of a multi-label classification model for labelling text from `Li
 --->create another loop within the epochs loop for validation DataLoader object and calculate loss. If the new validation loss is less than the current value of val_loss_min, then set reference of val_loss_min to this value and save the optimizer and model state dictionaries using torch.save()<br/>
 --->Repeat for all epochs<br/><br/>
 ->**Testing**:<br/>
----> follow the steps to create a DataLoader object the same as train and validation set.<br/>
+---> follow the steps to create a DataLoader object for test set in the same way as train and validation set.<br/>
 ---> compare outputs with actual labels and calculate loss<br/><br/>
 ### Final test for the project: <br/>
 ->Load the models using torch.load and test sentence and page models against both test sets<br/><br/>

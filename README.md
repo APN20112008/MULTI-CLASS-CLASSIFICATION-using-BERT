@@ -14,4 +14,5 @@ Implementation of a multi-class classification model for labelling text from Lin
 ->Test the 2 models against test sets from both page and sentence datasets.
 
 ### create_dataset.ipynb
-->Read text from ![image](https://user-images.githubusercontent.com/80392139/151307604-7d7cf29c-1b29-4a0b-9386-2f683259f9ba.png)
+->Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using PyMuPDF(https://pymupdf.readthedocs.io/en/latest/)
+![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)

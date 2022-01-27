@@ -18,6 +18,6 @@ Implementation of a multi-class classification model for labelling text from Lin
 ![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)<br/>
 ->Special symbols, images and diagrams won't get captured properly and also because the model is a text processing mode, I didn't capture the effect of diagrams and images.<br/>
 --->Examples of what I defined as noisy data from the text :<br/>"x","singlestring","12.12","2","22333231","multiple words string to check if its not getting captured as noise by the RegEx","2am","Chapter 2", "5 2", "A =","b==","������","= 3·5−**2·61·5−2·4 = 3\n−3 = −1" <br/>
---->Regex module : https://docs.python.org/3/library/re.html
+--->Regex module : [https://docs.python.org/3/library/re.html] #breh <b/r>
 ->Found RegEx patterns to find each of these cases separately and then combined all of them as a single RegEx using | : <br/> 
 ` p2= r'^\d*$|^\d+\s?\d+$|^.\w$|^\w?\s?=+|^[a-zA-Z](?!\w)|^�*$|^\d*\.\d*$' ` <br/>

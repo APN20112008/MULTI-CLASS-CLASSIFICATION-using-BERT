@@ -30,24 +30,24 @@ Implementation of a multi-class classification model for labelling text from Lin
 ---> Append updated string to a list<br/> 
 ---> Repeat the whole process for all pages<br/> 
 ![image](https://user-images.githubusercontent.com/80392139/151325950-aa186f56-881a-402b-9940-1f085c04929e.png)<br/> <br/> 
--> I've considered each chapter as a separate label so that meant the model will predict 8 labels total.<br/>
----> Create a label list for of length= number of pages for page model<br/>
----> Create a label list for of length= number of lines for sentence model<br/><br/>
+-> I've considered each chapter as a separate label so that means that the model will predict 8 labels total.<br/>
+---> Create a label list of length= number of pages for page model<br/>
+---> Create a label list of length= number of lines for sentence model<br/><br/>
 ->Create a dictionary and export dataset as a csv file using to_csv() method from the Pandas library<br/><br/>
 ->At the end, I've just used sampling to split the dataset and organize the data using os and shutil methods<br/><br/>
 
 ### Training and testing the Models <br/>
 -> import required libraries: torch,numpy,pandas,shutil<br/>
----> **torch**: to utilize the hugging face library<br/>
+---> **torch**: to utilize PyTorch API<br/>
 ---> **numpy**: to deal with numpy types such as 'Inf' to use in the training loop<br/>
 ---> **pandas**: to read,sample and modify datasets if required<br/>
----> **transformers**: to utilize BERT API<br/><br/>
+---> **transformers**: to utilize BERT API from the hugging face library<br/><br/>
 -> in sentence_models.ipynb, I've used unique() and tolist() methods to get a list of all the labels.<br/>
 ---> in pages_models.ipynb, I've just copied this list so as to train both the models with the same label encoding for the target labels.<br/><br/>
 -> Create a class myDataset, the purpose of this class is to process the dataset and return text encodings: 'input_ids', 'token_type_ids', 'attention_mask'<br/>
 -> Now this is the dataset that's going to be used by BERT<br/>
 --->As I'm going to process my data in batches, I will need attention_mask as well as input ids<br/>
---->token type ids are usually required when dealing with sentence pairs, but I've included it as just standard procedure. It is NOT required.<br/><br/>
+--->token type ids are usually required when dealing with sentence pairs, but I've included it just as standard procedure. It is not really required.<br/><br/>
 -> pass the myDataset objects for test and val as parameter for DataLoader constructor, along with parameters specifying the number of batches, shuffling of data, number of workers.<br/>![image](https://user-images.githubusercontent.com/80392139/151388218-ac5bb4dd-9875-4e91-901c-5447f398e774.png)<br/>
 -> in class BERTModel, the structure of and steps involved in the neural network are specified:<br/>
 --->**structure:** BERT layer->Dropout layer(to avoid overfitting)->Linear layer which for this model will have 768 weights(BERT-base) connected to 8 nodes(labels).<br/>

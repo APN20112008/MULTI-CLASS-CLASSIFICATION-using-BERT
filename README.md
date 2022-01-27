@@ -61,7 +61,7 @@ Implementation of a multi-class classification model for labelling text from Lin
 ->**Testing**:<br/>
 ---> follow the steps to create a DataLoader object the same as train and validation set.<br/>
 ---> compare outputs with actual labels and calculate loss<br/><br/>
-### final test for the project: <br/>
+### Final test for the project: <br/>
 ->Load the models using torch.load and test sentence and page models against both test sets<br/><br/>
 
 ### Saving and Loading model and optimizer state dictionaries: <br/>

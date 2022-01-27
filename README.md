@@ -1,5 +1,5 @@
-# MULTI-CLASS-CLASSIFICATION-using-BERT
-Implementation of a multi-class classification model for labelling text from Linear Algebra by Gilbert Strang
+# MULTI-LABEL-CLASSIFICATION-using-BERT
+Implementation of a multi-label classification model for labelling text from Linear Algebra by Gilbert Strang
 
 ### Summary of steps: 
 -> Pick book to use as source of dataset.<br/><br/>

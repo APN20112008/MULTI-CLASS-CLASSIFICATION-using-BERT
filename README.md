@@ -2,7 +2,7 @@
 Implementation of a multi-class classification model for labelling text from Linear Algebra by Gilbert Strang
 
 ### Summary of steps:
-->Pick book to use as source of dataset.
+->Pick book to use as source of dataset.<\n>
 ->Read and store required text from all pages in the book
 ->Identify and define noise in the text using a RegEx and clean the text data
 ->Identify labels

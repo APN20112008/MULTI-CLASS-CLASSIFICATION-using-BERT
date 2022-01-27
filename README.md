@@ -15,4 +15,8 @@ Implementation of a multi-class classification model for labelling text from Lin
 
 ### create_dataset.ipynb
 ->Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using PyMuPDF(https://pymupdf.readthedocs.io/en/latest/)
-![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)
+![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)<br/>
+->Special symbols, images and diagrams won't get captured properly and also because the model is a text processing mode, I didn't capture the effect of diagrams and images.<br/>
+-->Examples of what I defined as noisy data from the text :<br/>"x","xasdad","12.12","2","22333231","there are 2 of them","2am","Chapter 2", "5 2", "A =","b==","������","= 3·5−**2·61·5−2·4 = 3\n−3 = −1" 
+->Found RegEx patterns to find each of these cases separately and then combined all of them as a single RegEx using | : <br/> 
+` p2= r'^\d*$|^\d+\s?\d+$|^.\w$|^\w?\s?=+|^[a-zA-Z](?!\w)|^�*$|^\d*\.\d*$' ` <br/>

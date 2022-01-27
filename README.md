@@ -46,4 +46,7 @@ Implementation of a multi-class classification model for labelling text from Lin
 ---> in pages_models.ipynb, I've just copied this list so as to train both the models with the same label encoding for the target labels.<br/><br/>
 -> Create a class myDataset, the purpose of this class is to process the dataset and return text encodings: 'input_ids', 'token_type_ids', 'attention_mask'<br/>
 -> Now this is the dataset that's going to be used by BERT<br/>
----> 
+--->As I'm going to process my data in batches, I will need attention_mask as well as input ids<br/>
+--->token type ids are usually required when dealing with sentence pairs, but I've included it as just standard procedure. It is NOT required.<br/><br/>
+-> pass the myDataset objects for test and val as parameter for DataLoader constructor, along with parameters specifying the number of batches, shuffling of data, number of workers.<br/>![image](https://user-images.githubusercontent.com/80392139/151388218-ac5bb4dd-9875-4e91-901c-5447f398e774.png)
+->

@@ -30,3 +30,15 @@ Implementation of a multi-class classification model for labelling text from Lin
 ---> Append updated string to a list<br/> 
 ---> Repeat the whole process for all pages<br/> 
 ![image](https://user-images.githubusercontent.com/80392139/151325950-aa186f56-881a-402b-9940-1f085c04929e.png)<br/> <br/> 
+-> I've considered each chapter as a separate label so that meant the model will predict 8 labels total.<br/>
+---> Create a label list for of length= number of pages for page model<br/>
+---> Create a label list for of length= number of lines for sentence model<br/><br/>
+->Create a dictionary and export dataset as a csv file using to_csv() method from the Pandas library<br/><br/>
+->At the end, I've just used sampling to split the dataset and organize the data using os and shutil methods<br/><br/>
+
+### Training the Models <br/>
+->import required libraries: torch,numpy,pandas,shutil<br/>
+---> torch: to utilize the hugging face library<br/>
+---> numpy: to deal with numpy types such as 'Inf' to use in the training loop<br/>
+---> pandas: to read,sample and modify datasets if required<br/><br/>
+->in <kbd>sentence_models<kbd/>

@@ -22,6 +22,11 @@ Implementation of a multi-class classification model for labelling text from Lin
 ->Found RegEx patterns to find each of these cases separately and then combined all of them as a single RegEx using | : <br/> 
 ` p2= r'^\d*$|^\d+\s?\d+$|^.\w$|^\w?\s?=+|^[a-zA-Z](?!\w)|^�*$|^\d*\.\d*$' ` <br/><br/>
 ->cleanText(text, pat): <br/> 
---->text : whole page as a string ; pat : RegEx to clean the text<br/> 
---->splits string into multiple strings using newline character(\n) as the separator => .split('\n')<br/> 
+---> text : whole page as a string ; pat : RegEx to clean the text<br/> 
+---> splits string into multiple strings using newline character(\n) as the separator => .split('\n')<br/> 
 ---> using findall() method from re library to return a list of all strings identified as noise and use a list object variable as a reference to it.<br/> 
+---> If a string is in the list then return its index value and replace with '' <br/> 
+---> If whole list just consists of '' or if number of space separated strings are <4 (also considered as noise by me), then skip these lines<br/> 
+---> Append updated string to a list<br/> 
+---> Repeat the whole process for all pages<br/> 
+![image](https://user-images.githubusercontent.com/80392139/151325950-aa186f56-881a-402b-9940-1f085c04929e.png)<br/> <br/> 

@@ -37,8 +37,10 @@ Implementation of a multi-class classification model for labelling text from Lin
 ->At the end, I've just used sampling to split the dataset and organize the data using os and shutil methods<br/><br/>
 
 ### Training the Models <br/>
-->import required libraries: torch,numpy,pandas,shutil<br/>
+-> import required libraries: torch,numpy,pandas,shutil<br/>
 ---> torch: to utilize the hugging face library<br/>
----> numpy: to deal with numpy types such as 'Inf' to use in the training loop<br/>
+---> numpy: to deal with numpy types such as <kbd>Inf<kbd/> to use in the training loop<br/>
 ---> pandas: to read,sample and modify datasets if required<br/><br/>
-->in <kbd>sentence_models<kbd/>
+->in <kbd>sentence_models.ipynb<kbd/>, I've used unique() and tolist() methods to get a list of all the labels.<br/>
+---> in <kbd>pages_models.ipynb<kbd/>, I've just copied this list so as to train both the models with the same label encoding for the target labels.<br/>
+->

@@ -14,15 +14,15 @@ Implementation of a multi-class classification model for labelling text from Lin
 ->Test the 2 models against test sets from both page and sentence datasets.<br/><br/> 
 
 ### create_dataset.ipynb
-->Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using PyMuPDF(https://pymupdf.readthedocs.io/en/latest/)
+->Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using **PyMuPDF**(https://pymupdf.readthedocs.io/en/latest/)
 ![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)<br/><br/>
 ->Special symbols, images and diagrams won't get captured properly and also because the model is a text processing mode, I didn't capture the effect of diagrams and images.<br/>
 --->Examples of what I defined as noisy data from the text :<br/>"x","singlestring","12.12","2","22333231","multiple words string to check if its not getting captured as noise by the RegEx","2am","Chapter 2", "5 2", "A =","b==","������","= 3·5−**2·61·5−2·4 = 3\n−3 = −1" <br/>
---->Regex module : https://docs.python.org/3/library/re.html  <br/><br/>
+--->**Regex module** : https://docs.python.org/3/library/re.html  <br/><br/>
 ->Found RegEx patterns to find each of these cases separately and then combined all of them as a single RegEx using | : <br/> 
 ` p2= r'^\d*$|^\d+\s?\d+$|^.\w$|^\w?\s?=+|^[a-zA-Z](?!\w)|^�*$|^\d*\.\d*$' ` <br/><br/>
-->cleanText(text, pat): <br/> 
----> text : whole page as a string ; pat : RegEx to clean the text<br/> 
+->**cleanText(text, pat)**: <br/> 
+---> **text** : whole page as a string ; **pat** : RegEx to clean the text<br/> 
 ---> splits string into multiple strings using newline character(\n) as the separator => .split('\n')<br/> 
 ---> using findall() method from re library to return a list of all strings identified as noise and use a list object variable as a reference to it.<br/> 
 ---> If a string is in the list then return its index value and replace with '' <br/> 
@@ -38,10 +38,10 @@ Implementation of a multi-class classification model for labelling text from Lin
 
 ### Training and testing the Models <br/>
 -> import required libraries: torch,numpy,pandas,shutil<br/>
----> torch: to utilize the hugging face library<br/>
----> numpy: to deal with numpy types such as 'Inf' to use in the training loop<br/>
----> pandas: to read,sample and modify datasets if required<br/>
----> transformers: to utilize BERT API<br/><br/>
+---> **torch**: to utilize the hugging face library<br/>
+---> **numpy**: to deal with numpy types such as 'Inf' to use in the training loop<br/>
+---> **pandas**: to read,sample and modify datasets if required<br/>
+---> **transformers**: to utilize BERT API<br/><br/>
 -> in sentence_models.ipynb, I've used unique() and tolist() methods to get a list of all the labels.<br/>
 ---> in pages_models.ipynb, I've just copied this list so as to train both the models with the same label encoding for the target labels.<br/><br/>
 -> Create a class myDataset, the purpose of this class is to process the dataset and return text encodings: 'input_ids', 'token_type_ids', 'attention_mask'<br/>

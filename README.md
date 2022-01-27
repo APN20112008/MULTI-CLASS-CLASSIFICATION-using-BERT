@@ -40,8 +40,8 @@ Implementation of a multi-class classification model for labelling text from Lin
 -> import required libraries: torch,numpy,pandas,shutil<br/>
 ---> torch: to utilize the hugging face library<br/>
 ---> numpy: to deal with numpy types such as 'Inf' to use in the training loop<br/>
----> pandas: to read,sample and modify datasets if required<br/><br/>
----> transformers: to utilize BERT API
+---> pandas: to read,sample and modify datasets if required<br/>
+---> transformers: to utilize BERT API<br/><br/>
 -> in sentence_models.ipynb, I've used unique() and tolist() methods to get a list of all the labels.<br/>
 ---> in pages_models.ipynb, I've just copied this list so as to train both the models with the same label encoding for the target labels.<br/><br/>
 -> Create a class myDataset, the purpose of this class is to process the dataset and return text encodings: 'input_ids', 'token_type_ids', 'attention_mask'<br/>

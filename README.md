@@ -67,6 +67,6 @@ Implementation of a multi-class classification model for labelling text from Lin
 ### Saving and Loading model and optimizer state dictionaries: <br/>
 ![image](https://user-images.githubusercontent.com/80392139/151401630-5091c519-4104-4fef-8101-bf755bded144.png)<br/>
 ->This next piece of code is used within the training loop to save the best performing model weight:<br/>
-![image](https://user-images.githubusercontent.com/80392139/151401700-62c3d461-4695-4bf8-960c-e86856b1c18a.png)
+![image](https://user-images.githubusercontent.com/80392139/151401700-62c3d461-4695-4bf8-960c-e86856b1c18a.png)<br/>
 ->The next piece of code is used to load model state dict: <br/>
 ![image](https://user-images.githubusercontent.com/80392139/151402903-bb7f8df5-d774-4116-ba7d-352d00b089f1.png)

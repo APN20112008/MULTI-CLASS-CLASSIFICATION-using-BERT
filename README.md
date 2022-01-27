@@ -2,7 +2,7 @@
 Implementation of a multi-class classification model for labelling text from Linear Algebra by Gilbert Strang
 
 ### Summary of steps: 
-**->** Pick book to use as source of dataset.<br/><br/>
+-> Pick book to use as source of dataset.<br/><br/>
 -> Read and store required text from all pages in the book<br/><br/> 
 ->Identify and define noise in the text using a RegEx and clean the text data<br/><br/> 
 ->Identify labels<br/><br/> 
@@ -22,6 +22,6 @@ Implementation of a multi-class classification model for labelling text from Lin
 ->Found RegEx patterns to find each of these cases separately and then combined all of them as a single RegEx using | : <br/> 
 ` p2= r'^\d*$|^\d+\s?\d+$|^.\w$|^\w?\s?=+|^[a-zA-Z](?!\w)|^�*$|^\d*\.\d*$' ` <br/><br/>
 ->cleanText(text, pat): <br/> 
---->text : whole page as a string ; pat : RegEx to clean the text<br/> 
+		text : whole page as a string ; pat : RegEx to clean the text<br/> 
 --->splits string into multiple strings using newline character(\n) as the separator => .split('\n')<br/> 
 ---> using findall() method from re library to return a list of all strings identified as noise and use a list object variable as a reference to it.<br/> 

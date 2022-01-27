@@ -1,9 +1,9 @@
 # MULTI-CLASS-CLASSIFICATION-using-BERT
 Implementation of a multi-class classification model for labelling text from Linear Algebra by Gilbert Strang
 
-### Summary of steps:
-__->__ Pick book to use as source of dataset.<br/><br/> 
-__->__Read and store required text from all pages in the book<br/><br/> 
+### Summary of steps: 
+**->** Pick book to use as source of dataset.<br/><br/>
+-> Read and store required text from all pages in the book<br/><br/> 
 ->Identify and define noise in the text using a RegEx and clean the text data<br/><br/> 
 ->Identify labels<br/><br/> 
 ->Prepare 2 datasets: <br/><br/> 

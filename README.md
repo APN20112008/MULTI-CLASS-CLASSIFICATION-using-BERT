@@ -1,6 +1,5 @@
 # MULTI-LABEL-CLASSIFICATION-using-BERT
 Implementation of a multi-label classification model for labelling text from `Linear Algebra and its applications by Gilbert Strang`
-#### goal
 ### Summary of steps: 
 -> Pick book to use as source of dataset.<br/><br/>
 -> Read and store required text from all pages in the book<br/><br/> 

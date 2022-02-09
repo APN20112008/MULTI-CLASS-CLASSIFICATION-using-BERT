@@ -37,15 +37,15 @@ Implementation of a multi-label classification model for labelling text from `Li
  
 | **Model name** | **Page** | **Sentence** |
 | :---:    |  :---:  |  :---:  |
-|**Page**      | 83.3333 / 0.10060729 | 43.54386543 / 0.39329978|
-|**Sentence**  | 83.3333 /0.10403795 | 78.56200528 /0.17218246 |
+|**Page**      | 83.3333 % / 0.10060729 | 43.54386543 % / 0.39329978|
+|**Sentence**  | 83.3333 % /0.10403795 | 78.56200528 % /0.17218246 |
 
 ## Key learnings: 
 - For a long input sequences to the model, a lower drop rate generalizes the training data in a better way, because the number of units set to 0 would also be high. Implying a higher drop rate would cause too much data loss resulting in high bias and wouldn’t fulfil the purpose of generalization either. On the other hand, for shorter input sequences, the rate can be greater than 0.5, because the amount of data being compromised will be less too. Also, the amount of sentence inputs to be used are much higher than page inputs. 
 - Training over sentence data yields overall more accurate results than the model that trains over page dataset. This could be because of less truncation and applying optimization steps on smaller chunks for the same labels, thus, training it better for each label. Sentence also offers more randomized data, which reduces the chances of **selection bias** as well as **accidental bias**.
 
 ## Files
-### create_dataset.ipynb
+#### create_dataset.ipynb
 - Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using **PyMuPDF** [^1]
 ![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)
 - Special symbols, images and diagrams won't get captured properly and also because the model is a text processing mode, I didn't capture the effect of diagrams and images.
@@ -67,7 +67,11 @@ Implementation of a multi-label classification model for labelling text from `Li
   - Create a label list of length= number of lines for sentence model
 - Create a dictionary and export dataset as a csv file using to_csv() method from the Pandas library
 - At the end, I've just used sampling to split the dataset and organize the data using os and shutil methods
-
+#### Data folder:
+- Contains the datasets
+- `Data/` has whole page and sentences datasets
+- `Data/pages` has a ready made split of *page_dataset.csv* for training and testing
+- `Data/sentences` has a ready made split of *sentence_dataset.csv* for training and testing
 ### Training and testing the Models
 - import required libraries: torch,numpy,pandas,shutil
   - **torch**: to utilize PyTorch API

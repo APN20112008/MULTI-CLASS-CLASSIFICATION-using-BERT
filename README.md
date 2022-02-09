@@ -33,11 +33,11 @@ Implementation of a multi-label classification model for labelling text from `Li
 ------> Conclusion: Regardless of the batch size, the avg <br/>
 ->Tested both models against each both test datasets (page and sentence). <br/>
 ---> **Outcomes**:<br/>
-**Accuracy / Loss**
-|Model name \| Page    | Sentence|
+ **Accuracy / Loss**
+| **Model name** | **Page** | **Sentence** |
 | :---:    |  :---:  |  :---:  |
-|Page      | 83.3333 / 0.10060729 | 43.54386543 / 0.39329978|
-|Sentence  | 83.3333 /0.10403795 | 78.56200528 /0.17218246 |
+|**Page**      | 83.3333 / 0.10060729 | 43.54386543 / 0.39329978|
+|**Sentence**  | 83.3333 /0.10403795 | 78.56200528 /0.17218246 |
 
 
 ## Key learnings: 

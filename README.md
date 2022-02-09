@@ -8,27 +8,27 @@ Implementation of a multi-label classification model for labelling text from `Li
 - BERT makes use of positional encodings instead of frequentist approaches such as bag-of-words/Word2Vec/GloVe. In word2vec for example, stop-words aren’t considered as they would add no meaning. These words would occur in any sentence for any label. However, this approach doesn’t account for lexical or referential ambiguity. For example, “Reading is on the map “ and “Reading a map” mean and imply different things. BERT positional encodings are made using a stack of 12 encoders. All that is left to do is a downstream task for classification (specific to our label set). Which makes our tasks considerably less dependent on resources and allows for a task specific fine-tuning process.
 <br/><br/>
 ## Summary of steps: 
-- Pick book to use as source of dataset.<br/><br/>
-- Read and store required text from all pages in the book<br/><br/> 
-- Identify and define noise in the text using a RegEx and clean the text data<br/><br/> 
-- Identify labels<br/><br/> 
-- Prepare 2 datasets: <br/><br/> 
-  -each row as text from a whole page<br/>
-  -each row as a line <br/><br/> 
-- Prepare a labels list for both,randomize the dataset using sampling method (pandas.sample(frac=1) ) and export as csv files using Pandas API<br/><br/> 
-- Train 2 separate deep learning models using BERT Transfer Learning over the 2 datasets and save the models<br/><br/> 
-- Test the 2 models against test sets from both page and sentence datasets.<br/><br/> 
+- Pick book to use as source of dataset.
+- Read and store required text from all pages in the book
+- Identify and define noise in the text using a RegEx and clean the text data
+- Identify labels
+- Prepare 2 datasets: 
+  -each row as text from a whole page
+  -each row as a line  
+- Prepare a labels list for both,randomize the dataset using sampling method (pandas.sample(frac=1) ) and export as csv files using Pandas API> 
+- Train 2 separate deep learning models using BERT Transfer Learning over the 2 datasets and save the models 
+- Test the 2 models against test sets from both page and sentence datasets.
 
 ## Experiments:
 - Trained and tested both models for different frequency rates in the Dropout layer and learning rates.
   - **Outcomes**:
     - For page model dropout layer with drop rate of 0.3 gave the best avg accuracy and avg loss over. Drop rate between [0.5,1] had a bad performance.
-    - For sentence model dropout layer with drop rate of 0.6 gave the best avg accuracy and avg loss over. Drop rate between [0.3,0.5] and [0.9,1] had a bad performance.   <br/>
-- Checked accuracy and model performance for different batch sizes. <br/>
-  - **Outcomes**:<br/>
-    - Intuition: to check if bigger number of sample affect the avg accuracy of the model. <br/>
-    - Conclusion: Regardless of the batch size, the avg <br/>
-- Tested both models against each both test datasets (page and sentence). <br/>
+    - For sentence model dropout layer with drop rate of 0.6 gave the best avg accuracy and avg loss over. Drop rate between [0.3,0.5] and [0.9,1] had a bad performance.
+- Checked accuracy and model performance for different batch sizes. 
+  - **Outcomes**:
+    - Intuition: to check if bigger number of sample affect the avg accuracy of the model. 
+    - Conclusion: Regardless of the batch size, the avg 
+- Tested both models against each both test datasets (page and sentence). 
   - **Outcomes**:<br/>
  **Accuracy / Loss** <br/>
  
@@ -43,7 +43,7 @@ Implementation of a multi-label classification model for labelling text from `Li
 
 ## Files
 ### create_dataset.ipynb
-- Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using **PyMuPDF**(https://pymupdf.readthedocs.io/en/latest/)
+- Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using **PyMuPDF** [^1]
 ![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)
 - Special symbols, images and diagrams won't get captured properly and also because the model is a text processing mode, I didn't capture the effect of diagrams and images.
   - Examples of what I defined as noisy data from the text :<br/>"x","singlestring","12.12","2","22333231","multiple words string to check if its not getting captured as noise by the RegEx","2am","Chapter 2", "5 2", "A =","b==","������","= 3·5−**2·61·5−2·4 = 3\n−3 = −1" 
@@ -102,3 +102,5 @@ Implementation of a multi-label classification model for labelling text from `Li
 ![image](https://user-images.githubusercontent.com/80392139/151401700-62c3d461-4695-4bf8-960c-e86856b1c18a.png)<br/>
 - The next piece of code is used to load model state dict: <br/>
 ![image](https://user-images.githubusercontent.com/80392139/151402903-bb7f8df5-d774-4116-ba7d-352d00b089f1.png)
+
+[^1]: https://pymupdf.readthedocs.io/en/latest/

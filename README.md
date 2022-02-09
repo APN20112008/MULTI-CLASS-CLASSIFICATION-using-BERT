@@ -1,5 +1,5 @@
 # MULTI-LABEL-CLASSIFICATION-using-BERT
-Implementation of a multi-label classification model for labelling text from `Linear Algebra and its applications by Gilbert Strang`
+Implementation of a multi-label classification model for labelling text from `Linear Algebra and its applications by Gilbert Strang`[^5]
 
 ## Possible approaches:
 - Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
@@ -116,3 +116,4 @@ The Illustrated Transformer by Jay Alammar : https://jalammar.github.io/illustra
 All you need is attention : https://arxiv.org/abs/1706.03762
 [^4]: Hugging Face library BERT : https://huggingface.co/docs/transformers/model_doc/bert <br/>
 The Illustrated BERT, ELMo, and co. by Jay Alammar : https://jalammar.github.io/illustrated-bert/ <br/>
+[^5]: https://www.amazon.com/Linear-Algebra-Its-Applications-4th/dp/0030105676

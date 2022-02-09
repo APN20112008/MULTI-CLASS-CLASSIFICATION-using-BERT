@@ -77,7 +77,7 @@ Implementation of a multi-label classification model for labelling text from `Li
 - Now this is the dataset that's going to be used by BERT
   - As I'm going to process my data in batches, I will need attention_mask as well as input ids
   - token type ids are usually required when dealing with sentence pairs, but I've included it just as standard procedure. It is not really required.
-- pass the myDataset objects for test and val as parameter for DataLoader constructor, along with parameters specifying the number of batches, shuffling of data, number of workers.
+- pass the myDataset objects for test and val as parameter for DataLoader constructor, along with parameters specifying the number of batches, shuffling of data, number of workers.<br/>
 ![image](https://user-images.githubusercontent.com/80392139/151388218-ac5bb4dd-9875-4e91-901c-5447f398e774.png)
 - in class BERTModel, the structure of and steps involved in the neural network are specified:
   - **structure:** BERT layer->Dropout layer(to avoid overfitting)->Linear layer which for this model will have 768 weights(BERT-base) connected to 8 nodes(labels).

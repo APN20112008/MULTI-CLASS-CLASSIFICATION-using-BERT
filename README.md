@@ -56,7 +56,7 @@ Implementation of a multi-label classification model for labelling text from `Li
   - If a string is in the list then return its index value and replace with ''  
   - If whole list just consists of '' or if number of space separated strings are <4 (also considered as noise by me), then skip these lines 
   - Append updated string to a list
-  - Repeat the whole process for all pages
+  - Repeat the whole process for all pages<br/>
 ![image](https://user-images.githubusercontent.com/80392139/151325950-aa186f56-881a-402b-9940-1f085c04929e.png)
 - I've considered each chapter as a separate label so that means that the model will predict 8 labels total.
   - Create a label list of length= number of pages for page model

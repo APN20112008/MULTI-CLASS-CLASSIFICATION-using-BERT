@@ -111,6 +111,5 @@ Implementation of a multi-label classification model for labelling text from `Li
 ### References
 [^1]: https://pymupdf.readthedocs.io/en/latest/
 [^2]: https://docs.python.org/3/library/re.html
-[^3]: https://huggingface.co/docs/transformers/index
-    https://jalammar.github.io/illustrated-transformer/
-[^4]: https://jalammar.github.io/illustrated-bert/ 
+[^3]: https://huggingface.co/docs/transformers/index 
+https://jalammar.github.io/illustrated-transformer/

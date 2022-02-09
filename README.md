@@ -1,6 +1,16 @@
 # MULTI-LABEL-CLASSIFICATION-using-BERT
 Implementation of a multi-label classification model for labelling text from `Linear Algebra and its applications by Gilbert Strang`
-### Summary of steps: 
+## Possible approaches:
+-> Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
+<br/>
+-> Use Word-2-vec or GloVe embeddings and use LSTMs or ML models such as Naïve Bayes or Support Vector Machine
+<br/><br/>
+## Approach rationale:
+-> Hugging face library offers an API for a pre-trained BERT model. We can essentially import all the pre-trained weights and biases from this model and fine tune it using our custom dataset. These have been fine-tuned on a huge amount of data. Running this process on a single-GPU google collab notebook would be unfeasible and this is a major reason to use Transfer Learning. 
+<br/>
+-> BERT makes use of positional encodings instead of frequentist approaches such as bag-of-words/Word2Vec/GloVe. In word2vec for example, stop-words aren’t considered as they would add no meaning. These words would occur in any sentence for any label. However, this approach doesn’t account for lexical or referential ambiguity. For example, “Reading is on the map “ and “Reading a map” mean and imply different things. BERT positional encodings are made using a stack of 12 encoders. All that is left to do is a downstream task for classification (specific to our label set). Which makes our tasks considerably less dependent on resources and allows for a task specific fine-tuning process.
+<br/><br/>
+## Summary of steps: 
 -> Pick book to use as source of dataset.<br/><br/>
 -> Read and store required text from all pages in the book<br/><br/> 
 ->Identify and define noise in the text using a RegEx and clean the text data<br/><br/> 
@@ -12,6 +22,22 @@ Implementation of a multi-label classification model for labelling text from `Li
 ->Train 2 separate deep learning models using BERT Transfer Learning over the 2 datasets and save the models<br/><br/> 
 ->Test the 2 models against test sets from both page and sentence datasets.<br/><br/> 
 
+## Experiments:
+-> Trained and tested both models for different frequency rates in the Dropout layer and learning rates. <br/>
+---> **Outcomes**:<br/>
+------> For page model dropout layer with drop rate of 0.3 gave the best avg accuracy and avg loss over. Drop rate between [0.5,1] had a bad performance.   <br/>
+------> For sentence model dropout layer with drop rate of 0.6 gave the best avg accuracy and avg loss over. Drop rate between [0.3,0.5] and [0.9,1] had a bad performance.   <br/>
+-> Checked accuracy and model performance for different batch sizes. <br/>
+---> **Outcomes**:<br/>
+------> Intuition: to check if bigger number of sample affect the avg accuracy of the model. <br/>
+------> Conclusion: Regardless of the batch size, the avg <br/>
+->Tested both models against each both test datasets (page and sentence). <br/>
+---> **Outcomes**:<br/>
+## Key learnings: 
+-> For a long input sequences to the model, a lower drop rate generalizes the training data in a better way, because the number of units set to 0 would also be high. Implying a higher drop rate would cause too much data loss resulting in high bias and wouldn’t fulfil the purpose of generalization either. On the other hand, for shorter input sequences, the rate can be greater than 0.5, because the amount of data being compromised will be less too. Also, the amount of sentence inputs to be used are much higher than page inputs. <br/>
+-> Training over sentence data yields overall more accurate results than the model that trains over page dataset. This could be because of less truncation and applying optimization steps on smaller chunks for the same labels, thus, training it better for each label. Sentence also offers more randomized data, which reduces the chances of **selection bias** as well as **accidental bias**. <br/>
+
+## Files
 ### create_dataset.ipynb
 ->Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using **PyMuPDF**(https://pymupdf.readthedocs.io/en/latest/)
 ![image](https://user-images.githubusercontent.com/80392139/151307854-fa9d9844-9842-4880-ac18-1a248049dcee.png)<br/><br/>

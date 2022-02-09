@@ -1,15 +1,15 @@
 # MULTI-LABEL-CLASSIFICATION-using-BERT
 Implementation of a multi-label classification model for labelling text from `Linear Algebra and its applications by Gilbert Strang`
-<br/>
+
 ## Possible approaches:
 - Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
 - Use Word-2-vec or GloVe embeddings and use LSTMs or ML models such as Naïve Bayes or Support Vector Machine
-- Use pre-trained BERT model and implement downstream task. 
-<br/>
+- Use pre-trained BERT model and implement downstream task.[^4]
+
 ## Approach rationale:
 - Hugging face library offers an API for a pre-trained BERT model. We can essentially import all the pre-trained weights and biases from this model and fine tune it using our custom dataset. These have been fine-tuned on a huge amount of data. Running this process on a single-GPU google collab notebook would be unfeasible and this is a major reason to use Transfer Learning. 
 - BERT makes use of positional encodings instead of frequentist approaches such as bag-of-words/Word2Vec/GloVe. In word2vec for example, stop-words aren’t considered as they would add no meaning. These words would occur in any sentence for any label. However, this approach doesn’t account for lexical or referential ambiguity. For example, “Reading is on the map “ and “Reading a map” mean and imply different things. BERT positional encodings are made using a stack of 12 encoders. All that is left to do is a downstream task for classification (specific to our label set). Which makes our tasks considerably less dependent on resources and allows for a task specific fine-tuning process.
-<br/>
+
 ## Summary of steps: 
 - Pick book to use as source of dataset.
 - Read and store required text from all pages in the book
@@ -21,7 +21,7 @@ Implementation of a multi-label classification model for labelling text from `Li
 - Prepare a labels list for both,randomize the dataset using sampling method (pandas.sample(frac=1) ) and export as csv files using Pandas API> 
 - Train 2 separate deep learning models using BERT Transfer Learning over the 2 datasets and save the models 
 - Test the 2 models against test sets from both page and sentence datasets.
-<br/>
+
 ## Experiments:
 - Trained and tested both models for different frequency rates in the Dropout layer and learning rates.
   - **Outcomes**:
@@ -40,11 +40,10 @@ Implementation of a multi-label classification model for labelling text from `Li
 |**Page**      | 83.3333 / 0.10060729 | 43.54386543 / 0.39329978|
 |**Sentence**  | 83.3333 /0.10403795 | 78.56200528 /0.17218246 |
 
-<br/>
 ## Key learnings: 
 - For a long input sequences to the model, a lower drop rate generalizes the training data in a better way, because the number of units set to 0 would also be high. Implying a higher drop rate would cause too much data loss resulting in high bias and wouldn’t fulfil the purpose of generalization either. On the other hand, for shorter input sequences, the rate can be greater than 0.5, because the amount of data being compromised will be less too. Also, the amount of sentence inputs to be used are much higher than page inputs. 
 - Training over sentence data yields overall more accurate results than the model that trains over page dataset. This could be because of less truncation and applying optimization steps on smaller chunks for the same labels, thus, training it better for each label. Sentence also offers more randomized data, which reduces the chances of **selection bias** as well as **accidental bias**.
-<br/>
+
 ## Files
 ### create_dataset.ipynb
 - Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using **PyMuPDF** [^1]
@@ -68,13 +67,13 @@ Implementation of a multi-label classification model for labelling text from `Li
   - Create a label list of length= number of lines for sentence model
 - Create a dictionary and export dataset as a csv file using to_csv() method from the Pandas library
 - At the end, I've just used sampling to split the dataset and organize the data using os and shutil methods
-<br/>
+
 ### Training and testing the Models
 - import required libraries: torch,numpy,pandas,shutil
   - **torch**: to utilize PyTorch API
   - **numpy**: to deal with numpy types such as 'Inf' to use in the training loop
   - **pandas**: to read,sample and modify datasets if required
-  - **transformers**: to utilize BERT API from the hugging face library
+  - **transformers**: to utilize BERT API from the hugging face library [^3]
 - in sentence_models.ipynb, I've used unique() and tolist() methods to get a list of all the labels.
   - in pages_models.ipynb, I've just copied this list so as to train both the models with the same label encoding for the target labels.
 - Create a class myDataset, the purpose of this class is to process the dataset and return text encodings: 'input_ids', 'token_type_ids', 'attention_mask'
@@ -97,10 +96,10 @@ Implementation of a multi-label classification model for labelling text from `Li
 - **Testing**:
   - follow the steps to create a DataLoader object for test-set in the same way as train and validation set.
   - compare outputs with actual labels and calculate loss
-<br/>
+
 ### Final test for the project: 
 - Load the models using torch.load and test sentence and page models against both test sets
-<br/>
+
 ### Saving and Loading model and optimizer state dictionaries: <br/>
 ![image](https://user-images.githubusercontent.com/80392139/151401630-5091c519-4104-4fef-8101-bf755bded144.png)<br/>
 - This next piece of code is used within the training loop to save the best performing model weight:<br/>
@@ -112,3 +111,6 @@ Implementation of a multi-label classification model for labelling text from `Li
 ### References
 [^1]: https://pymupdf.readthedocs.io/en/latest/
 [^2]: https://docs.python.org/3/library/re.html
+[^3]: https://huggingface.co/docs/transformers/index
+    https://jalammar.github.io/illustrated-transformer/
+[^4]: https://jalammar.github.io/illustrated-bert/ 

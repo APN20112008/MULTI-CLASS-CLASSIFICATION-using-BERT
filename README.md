@@ -109,10 +109,10 @@ Implementation of a multi-label classification model for labelling text from `Li
 <br/>
 
 ### References
-[^1]: PyMuPDF Documentation /: https://pymupdf.readthedocs.io/en/latest/
-[^2]: RegEx(re) Documentation /: https://docs.python.org/3/library/re.html
-[^3]: Hugging Face library Transformers/: https://huggingface.co/docs/transformers/index <br/>
-The Illustrated Transformer by Jay Alammar /: https://jalammar.github.io/illustrated-transformer/ <br/>
-All you need is attention /: https://arxiv.org/abs/1706.03762
-[^4]: Hugging Face library BERT /: https://huggingface.co/docs/transformers/model_doc/bert <br/>
-The Illustrated BERT, ELMo, and co. by Jay Alammar/: https://jalammar.github.io/illustrated-bert/ <br/>
+[^1]: PyMuPDF Documentation : https://pymupdf.readthedocs.io/en/latest/
+[^2]: RegEx(re) Documentation : https://docs.python.org/3/library/re.html
+[^3]: Hugging Face library Transformers : https://huggingface.co/docs/transformers/index <br/>
+The Illustrated Transformer by Jay Alammar : https://jalammar.github.io/illustrated-transformer/ <br/>
+All you need is attention : https://arxiv.org/abs/1706.03762
+[^4]: Hugging Face library BERT : https://huggingface.co/docs/transformers/model_doc/bert <br/>
+The Illustrated BERT, ELMo, and co. by Jay Alammar : https://jalammar.github.io/illustrated-bert/ <br/>

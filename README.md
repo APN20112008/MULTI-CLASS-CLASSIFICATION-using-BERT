@@ -1,14 +1,18 @@
 # MULTI-LABEL-CLASSIFICATION-using-BERT
 Implementation of a multi-label classification model for labelling text from `Linear Algebra and its applications by Gilbert Strang`[^5]
-
+## Problem description:
+-To be able to process text from `Linear Algebra and its applications by Gilbert Strang` through a deep learning model and predict the label for any given text.
+  - To achieve this, all text will have to be converted into numbers such that every word has a unique representation. 
+  - To use this number representation and apply supervised learning techniques to correctly guess the label/topic that the text is referring to.
 ## Possible approaches:
 - Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
+  -This offers no solutions for semantic,lexical or referential ambiguity. It solely guesses based on frequency of words associated with a label and would be a bad choice for this task.
 - Use Word-2-vec or GloVe embeddings and use LSTMs or ML models such as Naïve Bayes or Support Vector Machine
+  - Context independent embedding for each word. Also, depends on frequency of words occuring across the whole dataset. Resolves some degree of semantic ambiguity, but still not good enough.
 - Use pre-trained BERT model and implement downstream task.[^4]
-
 ## Approach rationale:
 - Hugging face library offers an API for a pre-trained BERT model. We can essentially import all the pre-trained weights and biases from this model and fine tune it using our custom dataset. These have been fine-tuned on a huge amount of data. Running this process on a single-GPU google collab notebook would be unfeasible and this is a major reason to use Transfer Learning. 
-- BERT makes use of positional encodings instead of frequentist approaches such as bag-of-words/Word2Vec/GloVe. In word2vec for example, stop-words aren’t considered as they would add no meaning. These words would occur in any sentence for any label. However, this approach doesn’t account for lexical or referential ambiguity. For example, “Reading is on the map “ and “Reading a map” mean and imply different things. BERT positional encodings are made using a stack of 12 encoders. All that is left to do is a downstream task for classification (specific to our label set). Which makes our tasks considerably less dependent on resources and allows for a task specific fine-tuning process.
+- BERT makes use of positional encodings instead of frequentist approaches such as bag-of-words/Word2Vec/GloVe.For example, “Reading is on the map “ and “Reading a map” mean and imply different things. BERT positional encodings are made using a stack of 12 encoders. The Bi-directional Encoding process is applied over an initial embedding produced by applying *Masked Language Modeling* and *Next Sentence Prediction* methods simultaneously over a huge dataset. This All that is left to do is a downstream task for classification (specific to our label set). Which makes our tasks considerably less dependent on resources and allows for a task specific fine-tuning process.
 
 ## Summary of steps: 
 - Pick book to use as source of dataset.

@@ -1,9 +1,8 @@
 # MULTI-LABEL-CLASSIFICATION-using-BERT
 Implementation of a multi-label classification model for labelling text from `Linear Algebra and its applications by Gilbert Strang`
 ## Possible approaches:
--> Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
-<br/>
--> Use Word-2-vec or GloVe embeddings and use LSTMs or ML models such as Naïve Bayes or Support Vector Machine
+- Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
+- Use Word-2-vec or GloVe embeddings and use LSTMs or ML models such as Naïve Bayes or Support Vector Machine
 <br/><br/>
 ## Approach rationale:
 -> Hugging face library offers an API for a pre-trained BERT model. We can essentially import all the pre-trained weights and biases from this model and fine tune it using our custom dataset. These have been fine-tuned on a huge amount of data. Running this process on a single-GPU google collab notebook would be unfeasible and this is a major reason to use Transfer Learning. 

@@ -33,14 +33,12 @@ Implementation of a multi-label classification model for labelling text from `Li
 ------> Conclusion: Regardless of the batch size, the avg <br/>
 ->Tested both models against each both test datasets (page and sentence). <br/>
 ---> **Outcomes**:<br/>
-
-| :--------------------------: |
-|             Accuracy         |
-| ---------------------------- |
+**Accuracy / Loss**
 |Model name| Page    | Sentence|
 | :---:    |  :---:  |  :---:  |
-|Page      | 83.3333 | 43.5438 |
-|Sentence  | 83.3333 | 78.5620 |
+|Page      | 83.3333 / 0.10060729 | 43.54386543 / 0.39329978|
+|Sentence  | 83.3333 /0.10403795 | 78.56200528 /0.17218246 |
+
 
 ## Key learnings: 
 -> For a long input sequences to the model, a lower drop rate generalizes the training data in a better way, because the number of units set to 0 would also be high. Implying a higher drop rate would cause too much data loss resulting in high bias and wouldn’t fulfil the purpose of generalization either. On the other hand, for shorter input sequences, the rate can be greater than 0.5, because the amount of data being compromised will be less too. Also, the amount of sentence inputs to be used are much higher than page inputs. <br/>

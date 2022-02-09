@@ -22,7 +22,7 @@ Implementation of a multi-label classification model for labelling text from `Li
 - Prepare 2 datasets: 
   -each row as text from a whole page
   -each row as a line  
-- Prepare a labels list for both,randomize the dataset using sampling method (pandas.sample(frac=1) ) and export as csv files using Pandas API> 
+- Prepare a labels list for both,randomize the dataset using sampling method (pandas.sample(frac=1) ) and export as csv files using Pandas API
 - Train 2 separate deep learning models using BERT Transfer Learning over the 2 datasets and save the models 
 - Test the 2 models against test sets from both page and sentence datasets.
 

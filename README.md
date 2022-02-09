@@ -3,28 +3,26 @@ Implementation of a multi-label classification model for labelling text from `Li
 ## Possible approaches:
 - Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
 - Use Word-2-vec or GloVe embeddings and use LSTMs or ML models such as Naïve Bayes or Support Vector Machine
-<br/><br/>
 ## Approach rationale:
--> Hugging face library offers an API for a pre-trained BERT model. We can essentially import all the pre-trained weights and biases from this model and fine tune it using our custom dataset. These have been fine-tuned on a huge amount of data. Running this process on a single-GPU google collab notebook would be unfeasible and this is a major reason to use Transfer Learning. 
-<br/>
--> BERT makes use of positional encodings instead of frequentist approaches such as bag-of-words/Word2Vec/GloVe. In word2vec for example, stop-words aren’t considered as they would add no meaning. These words would occur in any sentence for any label. However, this approach doesn’t account for lexical or referential ambiguity. For example, “Reading is on the map “ and “Reading a map” mean and imply different things. BERT positional encodings are made using a stack of 12 encoders. All that is left to do is a downstream task for classification (specific to our label set). Which makes our tasks considerably less dependent on resources and allows for a task specific fine-tuning process.
+- Hugging face library offers an API for a pre-trained BERT model. We can essentially import all the pre-trained weights and biases from this model and fine tune it using our custom dataset. These have been fine-tuned on a huge amount of data. Running this process on a single-GPU google collab notebook would be unfeasible and this is a major reason to use Transfer Learning. 
+- BERT makes use of positional encodings instead of frequentist approaches such as bag-of-words/Word2Vec/GloVe. In word2vec for example, stop-words aren’t considered as they would add no meaning. These words would occur in any sentence for any label. However, this approach doesn’t account for lexical or referential ambiguity. For example, “Reading is on the map “ and “Reading a map” mean and imply different things. BERT positional encodings are made using a stack of 12 encoders. All that is left to do is a downstream task for classification (specific to our label set). Which makes our tasks considerably less dependent on resources and allows for a task specific fine-tuning process.
 <br/><br/>
 ## Summary of steps: 
--> Pick book to use as source of dataset.<br/><br/>
--> Read and store required text from all pages in the book<br/><br/> 
-->Identify and define noise in the text using a RegEx and clean the text data<br/><br/> 
-->Identify labels<br/><br/> 
-->Prepare 2 datasets: <br/><br/> 
---->each row as text from a whole page<br/>
---->each row as a line <br/><br/> 
-->Prepare a labels list for both,randomize the dataset using sampling method (pandas.sample(frac=1) ) and export as csv files using Pandas API<br/><br/> 
-->Train 2 separate deep learning models using BERT Transfer Learning over the 2 datasets and save the models<br/><br/> 
-->Test the 2 models against test sets from both page and sentence datasets.<br/><br/> 
+- Pick book to use as source of dataset.<br/><br/>
+- Read and store required text from all pages in the book<br/><br/> 
+- Identify and define noise in the text using a RegEx and clean the text data<br/><br/> 
+- Identify labels<br/><br/> 
+- Prepare 2 datasets: <br/><br/> 
+  -each row as text from a whole page<br/>
+  -each row as a line <br/><br/> 
+- Prepare a labels list for both,randomize the dataset using sampling method (pandas.sample(frac=1) ) and export as csv files using Pandas API<br/><br/> 
+- Train 2 separate deep learning models using BERT Transfer Learning over the 2 datasets and save the models<br/><br/> 
+- Test the 2 models against test sets from both page and sentence datasets.<br/><br/> 
 
 ## Experiments:
--> Trained and tested both models for different frequency rates in the Dropout layer and learning rates. <br/>
----> **Outcomes**:<br/>
-------> For page model dropout layer with drop rate of 0.3 gave the best avg accuracy and avg loss over. Drop rate between [0.5,1] had a bad performance.   <br/>
+- Trained and tested both models for different frequency rates in the Dropout layer and learning rates. <br/>
+  - **Outcomes**:<br/>
+    - For page model dropout layer with drop rate of 0.3 gave the best avg accuracy and avg loss over. Drop rate between [0.5,1] had a bad performance.   <br/>
 ------> For sentence model dropout layer with drop rate of 0.6 gave the best avg accuracy and avg loss over. Drop rate between [0.3,0.5] and [0.9,1] had a bad performance.   <br/>
 -> Checked accuracy and model performance for different batch sizes. <br/>
 ---> **Outcomes**:<br/>

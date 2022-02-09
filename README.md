@@ -35,6 +35,7 @@ Implementation of a multi-label classification model for labelling text from `Li
 ---> **Outcomes**:<br/>
 |             :---:            |
 |             Accuracy         |
+| ---------------------------- |
 |Model name| Page    | Sentence|
 | :---:    |  :---:  |  :---:  |
 |Page      | 83.3333 | 43.5438 |

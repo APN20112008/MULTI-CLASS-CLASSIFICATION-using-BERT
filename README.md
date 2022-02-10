@@ -6,7 +6,7 @@ Implementation of a multi-label classification model for labelling text from `Li
   - To use this number representation and apply supervised learning techniques to correctly guess the label/topic that the text is referring to.
 ## Possible approaches:
 - Use bag-of-words and apply statistical and probabilistic analysis to predict the text’s label.
-  -This offers no solutions for semantic,lexical or referential ambiguity. It solely guesses based on frequency of words associated with a label and would be a bad choice for this task.
+  - This offers no solutions for semantic,lexical or referential ambiguity. It solely guesses based on frequency of words associated with a label and would be a bad choice for this task.
 - Use Word-2-vec or GloVe embeddings and use LSTMs or ML models such as Naïve Bayes or Support Vector Machine
   - Context independent embedding for each word. Also, depends on frequency of words occuring across the whole dataset. Resolves some degree of semantic ambiguity, but still not good enough.
 - Use pre-trained BERT model and implement downstream task.[^4]

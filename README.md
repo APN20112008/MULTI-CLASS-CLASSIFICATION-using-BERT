@@ -47,7 +47,13 @@ Implementation of a multi-label classification model for labelling text from `Li
 ## Key learnings: 
 - For a long input sequences to the model, a lower drop rate generalizes the training data in a better way, because the number of units set to 0 would also be high. Implying a higher drop rate would cause too much data loss resulting in high bias and wouldn’t fulfil the purpose of generalization either. On the other hand, for shorter input sequences, the rate can be greater than 0.5, because the amount of data being compromised will be less too. Also, the amount of sentence inputs to be used are much higher than page inputs. 
 - Training over sentence data yields overall more accurate results than the model that trains over page dataset. This could be because of less truncation and applying optimization steps on smaller chunks for the same labels, thus, training it better for each label. Sentence also offers more randomized data, which reduces the chances of **selection bias** as well as **accidental bias**.
-
+## Future Work
+- Generalize for more books
+- Handle images and tables better
+- Handle mathematical expressions better
+- Identify further scope for less data loss during data cleaning process
+- Look into customizing model by directly interacting with pretrained BERT parameters. 
+- Figure out a pipeline that could be generalized for multiple books of the same type
 ## Files
 #### create_dataset.ipynb
 - Read text from "Linear_algebra_and_its_applications_by_Strang_G._z-lib.org.pdf" using **PyMuPDF** [^1]
